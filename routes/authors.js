@@ -23,8 +23,8 @@ router.post("/createAuthor", async (request, response )=>{
        firstName:request.body.firstName,
        lastName: request.body.lastName,
        email:request.body.email,
-       birth: Number(request.body.birth)
-
+       birthday: request.body.birthday,
+       avatar:request.body.avatar
     });
     try{
       const authorToSave = await newAuhtor.save();

@@ -13,16 +13,17 @@ const AuthorSchema = new mongoose.Schema ({
     email:{
         type: String,
         required: true,
+        max: 255
     },
-    password: {
+    birthday: {
         type: String,
         required: true,
-        min: 8
+        max: 255
     },
-    age: {
-        type: Number,
-        required: false,
-        default: 0
+    avatar: {
+        type: String,
+        required: true,
+        max: 255
     }
 }, {timestamps: true, strict: true})
 
