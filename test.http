@@ -1,0 +1,12 @@
+GET http://localhost:3030/getAuthors
+
+####
+POST http://localhost:3030/createAuthor
+Content-Type: application/json
+
+{
+    "firstName": "Giulia",
+    "lastName": "Vaccaro",
+    "email": "giulia.vaccaro95@gmail.com",
+    "birth": 12
+}
