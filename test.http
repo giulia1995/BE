@@ -5,8 +5,29 @@ POST http://localhost:3030/createAuthor
 Content-Type: application/json
 
 {
-    "firstName": "Giulia",
+    "firstName": "Vincenzo",
     "lastName": "Vaccaro",
-    "email": "giulia.vaccaro95@gmail.com",
-    "birth": 12
+    "email": "vincenzo.vaccaro98@gmail.com",
+    "birthday": "61",
+    "avatar":"piczoo.png"
 }
+
+####
+GET http://localhost:3030/getAuthors/65f217789f363386c4e59f35
+
+####
+PATCH http://localhost:3030/updateAuthor/65f217789f363386c4e59f35
+Content-Type: application/json
+
+{
+    "lastName":"Basile"
+}
+####
+
+DELETE http://localhost:3030/deleteAuthor/65f217789f363386c4e59f35
+
+####
+GET http://localhost:3030/getAuthor/byName/mir
+
+####
+GET http://localhost:3030/getAuthor/byAge/39
