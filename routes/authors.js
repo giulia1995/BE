@@ -65,12 +65,12 @@ router.get("/getAuthor/byName/:query", async (request, response)=>{
    })
   }
 })
-router.get("/getAuthor/byAge/:age", async (request, response)=>{
-  const {age} = request.params;
+router.get("/getAuthor/byAge/:birthday", async (request, response)=>{
+  const {birthday} = request.params;
   try{
    const authorByAge = await  AuthorsModel.find({
-    age: {
-      $gte: age,
+    birthday: {
+      $gte: birthday,
       
     }
    })
