@@ -1,0 +1,11 @@
+POST http://localhost:3030/books/create 
+Content-Type: application/json
+
+
+{
+    "author":"Mirko",
+    "title":"Un libro fantastico",
+    "price": 12.50,
+    "isFeatured": false,
+    "description": "che libro merdaviglioso."
+}

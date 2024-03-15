@@ -8,10 +8,12 @@ const PORT = 3030;
 const app = express();
 //import delle routes
 const authorsRoute = require ("./routes/authors");
+const booksRoute = require ("./routes/books");
 //middleware
 app.use(cors())
 app.use(express.json());
 app.use("/", authorsRoute);
+app.use ("/", booksRoute);
 
 
 //connessione del database
