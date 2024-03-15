@@ -5,11 +5,11 @@ POST http://localhost:3030/createAuthor
 Content-Type: application/json
 
 {
-    "firstName": "Vincenzo",
-    "lastName": "Vaccaro",
-    "email": "vincenzo.vaccaro98@gmail.com",
-    "birthday": "61",
-    "avatar":"piczoo.png"
+    "firstName": "Francesca",
+    "lastName": "Pavone",
+    "email": "ciccia.pa@gmail.com",
+    "birthday": "35",
+    "avatar":"picwow10.png"
 }
 
 ####

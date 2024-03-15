@@ -3,11 +3,20 @@ const router = express.Router();
 const AuthorsModel = require("../models/authors");
 
 router.get("/getAuthors", async ( request, response)=>{
-    try{
-       const authors = await AuthorsModel.find();
+  const {page = 1, pageSize = 4} = request.query;  
+  try{
+       const authors = await AuthorsModel.find()
+       .limit(pageSize)
+       .skip((page - 1) * pageSize)
+       .sort ({birthday: -1})
+       const totalAuthors = await AuthorsModel.countDocuments();
        response
        .status(200)
-       .send(authors)
+       .send({
+        currentPage: +page,
+        totalPages: Math.ceil(totalAuthors / pageSize),
+        authors
+       })
     } catch(e){
       response
       .status(500)
