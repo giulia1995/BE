@@ -9,3 +9,6 @@ Content-Type: application/json
     "isFeatured": false,
     "description": "che libro merdaviglioso."
 }
+
+####
+GET http://localhost:3030/books
