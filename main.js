@@ -7,11 +7,13 @@ const PORT = 3030;
 
 const app = express();
 //import delle routes
+const usersRoute = require ("./routes/users");
 const authorsRoute = require ("./routes/authors");
 const booksRoute = require ("./routes/books");
 //middleware
 app.use(cors())
 app.use(express.json());
+app.use("/", usersRoute);
 app.use("/", authorsRoute);
 app.use ("/", booksRoute);
 
