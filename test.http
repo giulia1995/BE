@@ -32,3 +32,6 @@ GET http://localhost:3030/getAuthor/byName/mir
 
 ####
 GET http://localhost:3030/getAuthor/byAge/39
+
+####
+GET http://localhost:3030/getUsers

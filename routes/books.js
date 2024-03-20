@@ -1,6 +1,7 @@
 const express = require("express");
 const books = express.Router();
 const BooksModel = require("../models/books");
+//const logger = require("../middlewares/logger");
 
 books.get("/books", async (req, res) => {
   const { page = 1, pageSize = 10 } = req.query;

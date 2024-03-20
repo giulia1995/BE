@@ -17,3 +17,7 @@ Content-Type: application/json
     "email": "ricva@gmail.com",
     "password": "ciaoRick2345"
 }
+
+####
+
+GET http://localhost:3030/getUsers
