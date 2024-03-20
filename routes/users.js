@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const UserModel = require("../models/users");
+const bcrypt = require ("bcrypt");
 
 router.get("/getUsers", async (req, res)=>{
     const { page = 1, pageSize = 5} = req.query;
@@ -53,10 +54,15 @@ router.get("/getUsers/:id", async (req, res)=>{
 })
 
 router.post("/createUser", async (req, res)=>{
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(req.body.password, salt)
+
+    
     const newUser = new UserModel({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
+        password: hashedPassword,
         age: Number(req.body.age)
     });
     try{

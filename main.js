@@ -10,12 +10,14 @@ const app = express();
 const usersRoute = require ("./routes/users");
 const authorsRoute = require ("./routes/authors");
 const booksRoute = require ("./routes/books");
+const loginRoute = require ("./routes/login");
 //middleware
 app.use(cors())
 app.use(express.json());
 app.use("/", usersRoute);
 app.use("/", authorsRoute);
 app.use ("/", booksRoute);
+app.use("/", loginRoute);
 
 
 //connessione del database
