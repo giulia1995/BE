@@ -49,10 +49,4 @@ login.post("/login", async (req, res)=>{
 })
 
 
-
-
-
-
-
-
 module.exports = login;

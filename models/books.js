@@ -21,7 +21,7 @@ const BookSchema = new mongoose.Schema ({
     },
     price: {
         type: mongoose.Types.Decimal128,
-        required: false,
+        required: true,
         default: 0.0
     },
     description: {

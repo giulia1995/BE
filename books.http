@@ -1,14 +1,14 @@
 POST http://localhost:3030/books/create 
 Content-Type: application/json
 
-
 {
-    "author":"De Amicis",
-    "title":"Libro Cuore",
-    "price": 15.50,
-    "isFeatured": true,
-    "description": "Un libro sempre attuale"
+    "author":"Giovanni Muchacha",
+    "title":"Art Attack",
+    "price": 12.00,
+    "isFeatured": false,
+    "description": "Un libro per i tuoi attacchi d'arte"
 }
+
 
 ####
 GET http://localhost:3030/books

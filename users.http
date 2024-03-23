@@ -1,3 +1,13 @@
+
+
+GET http://localhost:3030/getUsers
+
+
+
+
+####
+
+
 POST http://localhost:3030/createUser
 Content-Type: application/json
 
@@ -18,6 +28,3 @@ Content-Type: application/json
     "password": "ciaoRick2345"
 }
 
-####
-
-GET http://localhost:3030/getUsers
