@@ -12,11 +12,11 @@ POST http://localhost:3030/createUser
 Content-Type: application/json
 
 {
-    "firstName": "Rick",
-    "lastName": "Vascelli",
-    "email": "ricva@gmail.com",
-    "password": "ciaoRick2345",
-    "age": 21
+    "firstName": "Mirko",
+    "lastName": "Vaccaro",
+    "email": "mirko.vaccaro@gmail.com",
+    "password": "Mirko1234",
+    "age": 26
 
 }
 ####
@@ -24,7 +24,7 @@ POST http://localhost:3030/login
 Content-Type: application/json
 
 {
-    "email": "ricva@gmail.com",
-    "password": "ciaoRick2345"
+    "email": "mirko.vaccaro@gmail.com",
+    "password": "Mirko1234"
 }
 
