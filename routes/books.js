@@ -1,7 +1,31 @@
 const express = require("express");
 const books = express.Router();
 const BooksModel = require("../models/books");
+const multer = require("multer");
 //const logger = require("../middlewares/logger");
+
+
+const internalStorage= multer.diskStorage({
+  destination: (req, file, cb) =>{
+    cb(null, "uploads")
+  },
+  filename: (req, file, cb) =>{
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random()* 1E9);
+    console.log(file.originalname)
+    const fileExtension = file.originalname.split(".")
+    cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`)
+  }
+})
+
+const upload = multer({stosrage: internalStorage})
+
+
+books.post("/books/uploadImg", upload.single("uploadImag"), async (req, res)=>{
+  
+})
+
+
+
 
 books.get("/books", async (req, res) => {
   const { page = 1, pageSize = 10 } = req.query;

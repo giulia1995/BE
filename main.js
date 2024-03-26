@@ -6,6 +6,7 @@ const path = require('path')
 require("dotenv").config();
 
 
+
 // import delle routes
 const usersRoute = require('./routes/users');
 const booksRoute = require('./routes/books');
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(cors())
 
 // servire cartella upload con express.static middleware
+
+app.use("/uploads", express.static(path.join(__dirname,"./uploads")));
 
 app.use(logger);
 app.use('/', usersRoute);
