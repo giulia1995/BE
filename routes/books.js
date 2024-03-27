@@ -1,27 +1,38 @@
 const express = require("express");
 const books = express.Router();
 const BooksModel = require("../models/books");
-const multer = require("multer");
+const multer = require('multer');
 //const logger = require("../middlewares/logger");
 
 
 const internalStorage= multer.diskStorage({
-  destination: (req, file, cb) =>{
-    cb(null, "uploads")
+  destination: (req, file, cb) => {
+    cb(null, 'uploads')
   },
-  filename: (req, file, cb) =>{
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random()* 1E9);
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random()* 1E9);
     console.log(file.originalname)
-    const fileExtension = file.originalname.split(".")
-    cb(null, `${file.fieldname}-${uniqueSuffix}.${fileExtension}`)
+    const fileExtension = file.originalname.split('.').pop()
+    cb(null, `${file.fieldname} - ${uniqueSuffix}.${fileExtension}`)
   }
 })
 
-const upload = multer({stosrage: internalStorage})
+const upload = multer({storage: internalStorage})
 
 
-books.post("/books/uploadImg", upload.single("uploadImag"), async (req, res)=>{
-  
+books.post('/books/uploadImg', upload.single('uploadImg'), async (req, res)=>{
+  const url = req.protocol + '://' + req.get('host');
+  try{
+    const imageUrl = req.file.filename
+    res.status(200).json({source: `${url}/uploads/${imageUrl}`})
+
+  }catch(e){
+    res.status(500)
+    .send({
+      statusCode: 500,
+      message:'File Upload Error'
+    })
+  }
 })
 
 
