@@ -19,10 +19,8 @@ const internalStorage= multer.diskStorage({
     cb(null, 'uploads')
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random()* 1E9);
-    console.log(file.originalname)
     const fileExtension = file.originalname.split('.').pop()
-    cb(null, `${file.fieldname} - ${uniqueSuffix}.${fileExtension}`)
+    cb(null, `${file.fieldname} - ${new Date().toISOString()}.${fileExtension}`)
   }
 })
 
@@ -30,7 +28,7 @@ const cloudStorage = new CloudinaryStorage({
      cloudinary: cloudinary,
      params:{
       folder: 'PT043',
-      format: async (req, file) => 'png',
+      //format: async (req, file) => 'png',
       public_id: (req, file) => file.name
      }
 })

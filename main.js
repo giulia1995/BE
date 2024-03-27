@@ -12,6 +12,7 @@ const usersRoute = require('./routes/users');
 const booksRoute = require('./routes/books');
 const loginRoute = require('./routes/login');
 const authorsRoute = require('./routes/authors');
+const emailRoute = require ('./routes/sendEmail');
 
 
 const PORT = 3030;
@@ -30,6 +31,7 @@ app.use('/', usersRoute);
 app.use('/', booksRoute);
 app.use('/', loginRoute);
 app.use('/', authorsRoute);
+app.use('/', emailRoute);
 
 
 connectToDatabase()
