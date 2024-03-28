@@ -9,6 +9,7 @@ router.get("/getUsers", async (req, res)=>{
     const { page = 1, pageSize = 5} = req.query;
     try{
     const users = await UserModel.find()
+    .populate("postedBooks" , "title") 
     .limit (pageSize)
     .skip((page - 1) * pageSize)
     const totalUsers = await UserModel.countDocuments();

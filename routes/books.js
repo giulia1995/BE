@@ -3,6 +3,7 @@ const books = express.Router();
 const BooksModel = require("../models/books");
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
+const UserModel = require('../models/users');
 const {cloudinaryStorage, CloudinaryStorage} = require('multer-storage-cloudinary');
 require('dotenv').config()
 
@@ -72,6 +73,7 @@ books.get("/books", async (req, res) => {
   const { page = 1, pageSize = 10 } = req.query;
   try {
     const books = await BooksModel.find()
+      .populate("author")
       .limit(pageSize)
       .skip((page - 1) * pageSize)
       .sort({ pubDate: -1 });
@@ -93,8 +95,9 @@ books.get("/books", async (req, res) => {
 });
 
 books.post("/books/create", async (req, res) => {
+  const user = await UserModel.findOne({_id:req.body.author})
   const newBook = new BooksModel({
-    author: req.body.author,
+    author: user._id,
     title: req.body.title,
     editor: req.body.editor,
     cover: req.body.cover,
@@ -104,7 +107,8 @@ books.post("/books/create", async (req, res) => {
     isFeatured: req.body.isFeatured,
   });
   try {
-    await newBook.save();
+    const book = await newBook.save();
+    await UserModel.updateOne({_id:user._id}, {$push: {postedBooks:book}})
     res.status(201).send({
       statusCode: 201,
       payload: "Book saved successfully",

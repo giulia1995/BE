@@ -25,6 +25,7 @@ const AuthorSchema = new mongoose.Schema ({
         required: true,
         max: 255
     }
+
 }, {timestamps: true, strict: true})
 
 module.exports = mongoose.model("authorModel", AuthorSchema, "authors")
