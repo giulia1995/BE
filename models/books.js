@@ -1,8 +1,8 @@
 const mongoose = require ("mongoose");
 const BookSchema = new mongoose.Schema ({
     author:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "userModel"
+        type: String,
+        required: true,
     },
     title: {
         type: String,
@@ -29,7 +29,7 @@ const BookSchema = new mongoose.Schema ({
          required: true,
     },
     pubDate:{
-        type: Date,
+        type: String,
         required: false,
     },
     isFeatured:{

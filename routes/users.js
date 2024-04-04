@@ -8,8 +8,7 @@ const bcrypt = require ("bcrypt");
 router.get("/getUsers", async (req, res)=>{
     const { page = 1, pageSize = 5} = req.query;
     try{
-    const users = await UserModel.find()
-    .populate("postedBooks" , "title") 
+    const users = await UserModel.find()  
     .limit (pageSize)
     .skip((page - 1) * pageSize)
     const totalUsers = await UserModel.countDocuments();
@@ -56,7 +55,7 @@ router.get("/getUsers/:id", async (req, res)=>{
     }
 })
 
-router.post("/createUser",validateUserBody, async (req, res)=>{
+router.post(`/createUser`,validateUserBody, async (req, res)=>{
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
 

@@ -23,14 +23,7 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: false,
         default: 0
-    },
-    postedBooks:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "booksModel",
-            default : []
-        }
-    ]
+    }
 }, { timestamps: true, strict: true })
 
 
