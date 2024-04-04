@@ -64,7 +64,7 @@ books.post(`/books/uploadImg`, upload.single("uploadImg"), async (req, res) => {
 })
 
 books.get("/books", async (req, res) => {
-  const { page = 1, pageSize = 10 } = req.query;
+  const { page = 1, pageSize = 24 } = req.query;
   try {
     const books = await BooksModel.find()
       .limit(pageSize)
