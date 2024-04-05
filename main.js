@@ -14,6 +14,7 @@ const loginRoute = require('./routes/login');
 const authorsRoute = require('./routes/authors');
 const emailRoute = require ('./routes/sendEmail');
 const githubRoute = require (`./routes/github`);
+const commentsRoute = require(`./routes/comments`);
 
 
 const PORT = 3030;
@@ -34,6 +35,7 @@ app.use('/', loginRoute);
 app.use('/', authorsRoute);
 app.use('/', emailRoute);
 app.use(`/`, githubRoute);
+app.use(`/`, commentsRoute);
 
 
 connectToDatabase()
