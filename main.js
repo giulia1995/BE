@@ -7,14 +7,14 @@ require("dotenv").config();
 
 
 
-// import delle routes
+// import routes
 const usersRoute = require('./routes/users');
 const booksRoute = require('./routes/books');
 const loginRoute = require('./routes/login');
 const authorsRoute = require('./routes/authors');
 const emailRoute = require ('./routes/sendEmail');
 const githubRoute = require (`./routes/github`);
-const commentsRoute = require(`./routes/comments`);
+
 
 
 const PORT = 3030;
@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-// servire cartella upload con express.static middleware
+// service folder upload with express.static middleware
 
 app.use("/uploads", express.static(path.join(__dirname,"./uploads")));
 
@@ -35,7 +35,7 @@ app.use('/', loginRoute);
 app.use('/', authorsRoute);
 app.use('/', emailRoute);
 app.use(`/`, githubRoute);
-app.use(`/`, commentsRoute);
+
 
 
 connectToDatabase()
